@@ -98,7 +98,7 @@ const App = () => {
       }
       //getInitialNotification: When the application is opened from a quit state.
       const message = await messaging().getInitialNotification();
-      console.log("messafe", message);
+  
       setNotificationData(message)
       if (isAuthenticated && initialDeepLink != null) {
         navigationRef.current?.navigate(message.data.navigationId, { data: message })
