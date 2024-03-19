@@ -9,14 +9,20 @@ import Home from './HomeScreens/Home';
 import ProfileScreen from './Profile';
 const Tab = createBottomTabNavigator();
 
+import inAppMessaging from '@react-native-firebase/in-app-messaging';
+
 
 const HomeScreen = ({ navigation }) => {
+    useEffect(() => {
+     
+        console.log(inAppMessaging().isMessagesDisplaySuppressed)
+inAppMessaging().setMessagesDisplaySuppressed(false)
+      
+        return () => {
+          // Cleanup code here
+        };
+      }, []);
 
-
-    // useEffect(()=>{
-    //     console.log("Hrllo");
-    //     navigation.navigate('HomeStack', { screen: 'HomeDetails' });
-    // },[])
     return (
         <>
             <StatusBar
